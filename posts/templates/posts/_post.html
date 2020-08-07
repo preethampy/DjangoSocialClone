@@ -1,0 +1,33 @@
+<div class="post media">
+  <div class="container">
+  <div class="row" style="background:#f1f1f1;border-radius:5px;">
+    <div class="col-md" style="padding-left:5px;padding-right:5px;">
+      <p class="font-weight-normal" style="">{{ post.message_html|safe }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md" style="padding:0px;">
+  <div class="media-body">
+    <h5 class="media-heading">
+      <span class="username">
+        <a href="{% url 'posts:for_user' username=post.user.username %}">@{{post.user.username}}</a>
+      </span>
+      <time class="time">
+        <a href="{% url 'posts:single' username=post.user.username pk=post.pk %}">{{post.created_at}}</a>
+      </time>
+      {% if post.group %}
+        <span class="group-name">in <a href="#">{{ post.group.name }}</a> </span>
+      {% endif %}
+    </h5>
+    <div class="media-footer">
+      {% if user.is_authenticated and post.user == user and not hide_delete %}
+        <a href="{% url 'posts:delete' pk=post.pk %}" title="delete" class="btn btn-danger">
+          Delete
+        </a>
+      {% endif %}
+    </div>
+    </div>
+  </div>
+  </div>
+    </div>
+</div>

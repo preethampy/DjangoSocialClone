@@ -1,0 +1,20 @@
+{% extends "base_for_login.html" %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 my-auto" style="float:none; margin:0 auto;">
+    <h1 style="background-color:#F7F7F7; text-decoration: underline;color:#23272B;font-weight:bold;">Sign Up!</h1>
+    <h4 >Welcome to my django project! please signup here and login using the links above.Please feel free to walk around and let me know how you fell about this project.Thank you!</h4>
+  </div>
+  <div class="col-md-4 my-auto" style="float:none; margin:0 auto;padding: 0px;padding-top:25px;">
+    <form method="POST">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <input type="submit" class="btn btn-dark" value="Sign Up">
+    </form>
+  </div>
+  </div>
+  </div>
+</div>
+{% endblock%}

@@ -1,0 +1,16 @@
+{% extends "base_for_login.html" %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4" style="float:none; margin:0 auto; padding-top:150px;">
+      <h1 style="color:#23272B;font-weight:bold;">Log In</h1>
+      <form method="post" >
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" style="font-weight:bold;" class="btn btn-dark" value="Login">
+      </form>
+    </div>
+  </div>
+  </div>
+{% endblock%}
